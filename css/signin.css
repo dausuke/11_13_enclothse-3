@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+html{
+    font-size: 14px;
+}
+header {
+    width: 100%;
+    height: 40px;
+    background-color: #464c56;
+    color: white;
+    border-bottom: 1px solid #333;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+ul{
+    list-style: none;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-right: 1px solid #545b66;
+    border-left: 1px solid #545b66;
+    position: relative;
+}
+.top{
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    text-decoration:none;
+    font-size: 1.5rem;
+    display:inline-block;
+    margin:0 0 0 1rem;}
+.top:hover{
+    color: white;
+    text-decoration:none;
+}
+.selectnav{
+    margin: 0;
+    padding: 0;
+}
+.selectuser.none{
+    display: none;
+}
+.selectuser{
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-right: 1rem;
+    padding: 0.5rem 0 0.5rem 0;
+}
+.selectuser:hover{
+    text-decoration: solid underline rgba(250, 248, 248, 0.747) 3px;
+    list-style: none;
+    color: white;
+}
+.login-introducton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.login-introducton h2:nth-child(1){
+    margin-top: 1rem;
+}
+.login-introducton h2:nth-child(2){
+    margin-top: 3rem;
+}
+.login-introducton h2{
+    display: inline-flex;
+}
+.login-introducton h3{
+    width: 18rem;
+    word-break: keep-all;
+}
+.textwarning{
+    font-size: 12px;
+    color: rgb(99, 100, 100);
+    text-align: center;
+}
+.signin-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+}
+.signin-content input{
+    height: 2rem;
+    width: 15rem;
+    margin-top: 2rem;
+}
+.signupAlert{
+    padding: 0;
+    text-align: start;
+    list-style: none;
+    color: rgb(99, 100, 100);
+}
+.signinbtn{
+    width: 15rem!important;
+    margin-top: 2rem;
+}
+.signinbtn:hover{
+    background-color: rgb(141, 139, 139);
+    color: white;
+}
+.signinarea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+}
+@media screen and (min-width: 1024px) {
+    html{
+        font-size: 16px;
+    }
+}

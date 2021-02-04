@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+main{
+    width: 70%;
+    margin: 0 auto;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background-color: #464c56;
+    color: white;
+    border-bottom: 1px solid #333;
+}
+.header-content {
+    width: 70%;
+    height: 40px;
+    border-right: 1px solid #545b66;
+    border-left: 1px solid #545b66;
+    position: relative;
+}
+header p {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0 0 0.5rem 1rem;
+}
+.action {
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 3%;
+}
+.signout {
+    text-align: center;
+    width: 8rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.signout:hover {
+    background-color: rgb(39, 38, 38);
+}
+/* メニュー */
+.navbar {
+    position: fixed;
+    top: 13%;
+    left: 0;
+    padding: 0 0 0 1rem;
+    width: 10rem;
+}
+/* ダッシュボード */
+.dashboard-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashboard-frequency{
+    width: 100%;
+    height: 1rem;
+    background-color: red;
+}
+.dashboard-amount{
+    width: 100%;
+    height: 1rem;
+    background-color: blue;
+}
+.dashboard-unitprice{
+    width: 100%;
+    height: 1rem;
+    background-color: green;
+}

@@ -1,0 +1,166 @@
+html{
+    font-size: 14px;
+}
+body{
+    background-color: rgba(233, 231, 231, 0.644);
+}
+ul{
+    margin: 0!important;
+    padding: 0!important;
+    list-style: none;
+}
+.navbar{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+.navbar-nav{
+    justify-content: space-between;
+    flex-direction: row!important;
+}
+.nav-item{
+    margin: 0!important;
+    padding: 0!important;
+    display: flex!important;
+    align-items: center!important;
+    flex-direction: column!important;
+}
+.navi{
+    font-size: 10px;
+}
+.display-content{
+    padding-bottom: 60px;
+}
+/* ホーム画面 */
+.article-content{
+    background-color: white;
+    margin-top: 2rem;
+}
+.photo-area{
+    display: flex;
+    justify-content: center;
+}
+.photo{
+    width: 330px;
+    height: 150px;
+    margin-top: 1rem;
+    object-fit: cover;
+}
+.shop-introduction-content{
+    width: 90%;
+    margin: 0 auto;
+}
+.shopname{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.shopbrand{
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.644);
+}
+.shopbrand p{
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.644);
+    margin: 0;
+}
+/* 検索画面 */
+.shop-search{
+    display: flex;
+    justify-content: space-between;
+    width: 90%!important;
+    margin: 0 auto;
+    padding: 1rem 0 0 0;
+}
+.search-shop{
+    width: 80%;
+}
+.search-button{
+    width: 18%;
+}
+/* 店舗詳細画面 */
+.salesperson-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.salesperson-area p{
+    margin: 2rem 0 1rem 0;
+}
+.salesperson-content{
+    margin-bottom: 1rem;
+}
+.favorite{
+    color: rgb(241, 70, 107);
+}
+/* スタイリスト画面 */
+.salesperson-detail-content{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+.salesperson-detail-content li{
+    margin-bottom: 2rem;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.profile dl{
+    display: flex;
+    margin: 0;
+}
+.profile dl div{
+    margin-left: 2rem;
+}
+.stylest-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* マイページ */
+.account{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: solid 2px lightgray;
+    display: flex;
+    align-items: center;
+}
+.account span{
+    margin-left: 2rem;
+}
+.consumer-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.account-item{
+    width: 90%;
+    height: 60px;
+    margin: 0 auto;
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+.icon{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.account-item-title{
+    width: 100%;
+    height: 100%;
+    margin-left: 2rem;
+    border-bottom: solid 1px lightgray;
+    display: flex;
+    align-items: center;
+}
