@@ -1,17 +1,23 @@
 <?php
-//店舗情報取得
+//検索されたデータ取得
 session_start();
 ini_set( 'display_errors', 1 );
+// var_dump($_GET['searchWord']);
+// exit();
 
 include('../../functions.php');
-check_session_id();
-
 $pdo = connect_to_db();
 
+// var_dump($_GET);
+// exit();
 // データ取得SQL作成
-$sql = 'SELECT shop.shop_id,shopname,Introduction,area,photo,favorite_consumer_data.consumer_id  FROM shop LEFT OUTER JOIN (SELECT shop_id,consumer_id FROM favorite ) AS favorite_data ON shop.shop_id = favorite_data.shop_id INNER JOIN (SELECT consumer_id FROM consumer )AS favorite_consumer_data ON favorite_data.consumer_id=favorite_consumer_data.consumer_id';
+$stylest_id = $_GET['stylest_id'];
+$sql = "SELECT salesperson.salesperson_id, name, age, city, gender, shop, experience, image FROM salesperson LEFT OUTER JOIN( SELECT salesperson_id,coordinat_img FROM coordinat ) AS salesperson_data ON salesperson.salesperson_id = salesperson_data.salesperson_id
+ WHERE salesperson_id=:stylest_id";
+
 // SQL準備&実行
 $stmt = $pdo->prepare($sql);
+$stmt->bindValue(':stylest_id', $stylest_id, PDO::PARAM_STR);
 $status = $stmt->execute();
 
 // データ登録処理後
@@ -22,8 +28,8 @@ if ($status == false) {
     exit();
 } else {
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // var_dump($result);
-    // exit();
+    var_dump($result);
+    exit();
     echo json_encode($result, JSON_UNESCAPED_UNICODE);
 }
-?>
+

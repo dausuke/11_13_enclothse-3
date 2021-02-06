@@ -1,17 +1,19 @@
 <?php
-//店舗情報取得
+//コーディネート写真取得
 session_start();
 ini_set( 'display_errors', 1 );
-
 include('../../functions.php');
 check_session_id();
+
+$user_id = $_SESSION['uid'];
 
 $pdo = connect_to_db();
 
 // データ取得SQL作成
-$sql = 'SELECT shop.shop_id,shopname,Introduction,area,photo,favorite_consumer_data.consumer_id  FROM shop LEFT OUTER JOIN (SELECT shop_id,consumer_id FROM favorite ) AS favorite_data ON shop.shop_id = favorite_data.shop_id INNER JOIN (SELECT consumer_id FROM consumer )AS favorite_consumer_data ON favorite_data.consumer_id=favorite_consumer_data.consumer_id';
+$sql = 'SELECT coordinat_img FROM coordinat WHERE consumer_id=:user_id';
 // SQL準備&実行
 $stmt = $pdo->prepare($sql);
+$stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
 $status = $stmt->execute();
 
 // データ登録処理後
@@ -22,8 +24,6 @@ if ($status == false) {
     exit();
 } else {
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // var_dump($result);
-    // exit();
     echo json_encode($result, JSON_UNESCAPED_UNICODE);
 }
 ?>

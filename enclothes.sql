@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: localhost
--- 生成日時: 2021 年 2 月 04 日 15:12
+-- 生成日時: 2021 年 2 月 06 日 03:50
 -- サーバのバージョン： 10.4.17-MariaDB
 -- PHP のバージョン: 8.0.0
 
@@ -87,6 +87,7 @@ CREATE TABLE `consumer` (
   `email` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
   `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
   `is_deleted` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -94,8 +95,34 @@ CREATE TABLE `consumer` (
 -- テーブルのデータのダンプ `consumer`
 --
 
-INSERT INTO `consumer` (`consumer_id`, `name`, `age`, `city`, `gender`, `shop`, `img`, `height`, `weight`, `email`, `password`, `created_at`, `is_deleted`) VALUES
-(1, 'やまだ', '33', '岩手', '男性', 'UA', '../up_file/consumer/20210203160741d41d8cd98f00b204e9800998ecf8427e.jpeg', '0', '0', 'kkkk@gmail.com', '123456', '2021-01-26 10:31:47', 0);
+INSERT INTO `consumer` (`consumer_id`, `name`, `age`, `city`, `gender`, `shop`, `img`, `height`, `weight`, `email`, `password`, `created_at`, `updated_at`, `is_deleted`) VALUES
+(1, 'やまだ', '33', '岩手', '男性', 'bshop', '../../up_file/consumer/2021020514140620ef2b512868d6dbd98d1c6a5372872b.jpeg', '175', '55', 'kkkk@gmail.com', '123456', '2021-01-26 10:31:47', '2021-02-05 22:14:06', 0);
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `coordinat`
+--
+
+CREATE TABLE `coordinat` (
+  `coordinat_id` int(100) NOT NULL,
+  `consumer_id` int(100) DEFAULT NULL,
+  `salesperson_id` int(100) DEFAULT NULL,
+  `coordinat_img` varchar(100) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `is_deleted` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `coordinat`
+--
+
+INSERT INTO `coordinat` (`coordinat_id`, `consumer_id`, `salesperson_id`, `coordinat_img`, `created_at`, `is_deleted`) VALUES
+(1, 1, NULL, '../../up_file/consumer/20210205164311f60d379b40490ca8fae0da6d7bba5c5b.jpeg', '2021-02-06 00:43:11', 0),
+(2, 1, NULL, '../../up_file/consumer/20210205164345b80d9afee91876883ff06c2aa038a400.jpeg', '2021-02-06 00:43:46', 0),
+(3, 1, NULL, '../../up_file/consumer/202102051644531a9ed0728accbe0b09ee5ed2a893507b.jpeg', '2021-02-06 00:44:53', 0),
+(4, 1, NULL, '../../up_file/consumer/20210205164508241498c4720bcdf1918a9b34d1dac4c1.jpeg', '2021-02-06 00:45:08', 0),
+(7, NULL, 1, '../up_file/coordinate/20210206031957d41d8cd98f00b204e9800998ecf8427e.jpeg', '2021-02-06 11:21:18', 0);
 
 -- --------------------------------------------------------
 
@@ -193,22 +220,6 @@ INSERT INTO `stylest` (`stylest_id`, `salesperson_id`, `consumer_id`, `created_a
 (1, 1, 1, '2021-02-03 20:48:48'),
 (2, 2, 1, '2021-02-03 22:36:18');
 
--- --------------------------------------------------------
-
---
--- テーブルの構造 `wear`
---
-
-CREATE TABLE `wear` (
-  `wear_id` int(100) NOT NULL,
-  `shop_id` int(1) NOT NULL,
-  `brand` varchar(100) NOT NULL,
-  `text` varchar(500) NOT NULL,
-  `wear_picture` varchar(100) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `is_daleted` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- ダンプしたテーブルのインデックス
 --
@@ -230,6 +241,12 @@ ALTER TABLE `brand`
 --
 ALTER TABLE `consumer`
   ADD PRIMARY KEY (`consumer_id`);
+
+--
+-- テーブルのインデックス `coordinat`
+--
+ALTER TABLE `coordinat`
+  ADD PRIMARY KEY (`coordinat_id`);
 
 --
 -- テーブルのインデックス `favorite`
@@ -256,12 +273,6 @@ ALTER TABLE `stylest`
   ADD PRIMARY KEY (`stylest_id`);
 
 --
--- テーブルのインデックス `wear`
---
-ALTER TABLE `wear`
-  ADD PRIMARY KEY (`wear_id`);
-
---
 -- ダンプしたテーブルの AUTO_INCREMENT
 --
 
@@ -282,6 +293,12 @@ ALTER TABLE `brand`
 --
 ALTER TABLE `consumer`
   MODIFY `consumer_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- テーブルの AUTO_INCREMENT `coordinat`
+--
+ALTER TABLE `coordinat`
+  MODIFY `coordinat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- テーブルの AUTO_INCREMENT `favorite`
@@ -306,12 +323,6 @@ ALTER TABLE `shop`
 --
 ALTER TABLE `stylest`
   MODIFY `stylest_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- テーブルの AUTO_INCREMENT `wear`
---
-ALTER TABLE `wear`
-  MODIFY `wear_id` int(100) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -39,6 +39,9 @@ check_session_id();
             crossorigin="anonymous"
         ></script>
         <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+        <header id="main-header">
+            <main-header></main-header>
+        </header>
         <div id="main-content">
             <component :is="currentPage"　class="display-content"></component>
             <nav class="navbar navbar-expand-sm navbar-light" style="background-color:white;" >
@@ -61,5 +64,6 @@ check_session_id();
             </nav>
         </div>
         <script src="consumer_js/main_consumer.js"></script>
+        <script src="header.js"></script>
     </body>
 </html>
